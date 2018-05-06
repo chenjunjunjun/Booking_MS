@@ -1,0 +1,37 @@
+{% extends 'booking/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="ui vertical secondary basic segment">
+    <div class="ui container">
+      <div class="ui center aligned teal header">
+        Hello,欢迎来到报刊订阅系统
+      </div>
+
+    </div>
+    <div class="ui fitted three item  menu">
+      <div class="ui image">
+        <img src="{% static 'booking/images/book1.jpg' %}" alt="">
+      </div>
+
+      <div class="ui image">
+        <img src="{% static 'booking/images/book2.jpg' %}" alt="">
+      </div>
+
+      <div class="ui image">
+        <img src="{% static 'booking/images/book3.jpg' %}" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical secondary basic segment">
+    <div class="ui container segment">
+      <p><strong>阅读，这是最好的学问。</strong>
+      </p>
+
+    </div>
+  </div>
+
+
+{% endblock %}

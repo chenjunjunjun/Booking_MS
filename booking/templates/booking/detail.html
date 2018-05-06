@@ -1,0 +1,47 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+    <form action="{% url 'booking:book' %}" method="post">
+    {% csrf_token %}
+    <div class="ui vertical secondary very padded segment">
+        <div class="ui container">
+            {% if magazine_list %}
+            <div class="ui three stackable cards">
+                {% for mag in magazine_list %}
+                 <div class="card">
+                    <div class="content">
+
+                         <div class="header">
+                             {{ mag.mag_name }}
+                         </div>
+
+                        <div class="ui divider"></div>
+
+                        <div class="dersciption">
+                            {{ mag.comment }}
+                         </div>
+
+                        <button class="fluid ui  bottom attached animated fade button" name="mag"
+                        value="{{ mag.id }}">
+
+                            <div class="visible content">
+                            <i class="shop icon"></i>订阅
+                            </div>
+                            
+                            <div class="hidden content">
+                                <i class="yen icon"></i>
+                            {{ mag.price }}/年
+                            </div>
+
+                        </button>
+
+                     </div>
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+
+    <div class="ui vertical secondary very padded segment">
+        <div class="ui positive big message">
+            <div class="header">
+                {{ message }}
+            </div>
+        </div>
+    <a class="ui right floated black basic button" href="{% url 'booking:detail' %}">再次预定</a>
+    </div>
+{% endblock %}

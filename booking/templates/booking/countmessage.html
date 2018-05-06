@@ -1,0 +1,20 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+      <div class="ui vertical  secondary basic segment">
+    <div class="ui inverted three  item menu">
+      <a href="{% url 'booking:dstatis' %}" class="item">部门</a>
+      <a href="{% url 'booking:mstatis' %}" class="item">报刊</a>
+      <a href="{% url 'booking:pstatis' %}" class="item">个人</a>
+    </div>
+
+    <div class="ui container very padded segment">
+        {% block main %}
+
+        {% endblock %}
+
+      </div>
+
+    </div>
+
+{% endblock %}

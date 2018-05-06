@@ -1,0 +1,82 @@
+{% extends 'booking/countmessage.html' %}
+
+{% block main %}
+    {% if d_list %}
+    {% for d in d_list %}
+        <div class="ui container segment">
+                <h4>
+                    {{ d.depart_name }}
+                </h4>
+        <div class="ui divider"></div>
+            {% for staff in d.staff_set.all %}
+
+                <h5>{{ staff.staff_name }}</h5>
+
+                <div class="ui right floated  statistic">
+                    <div class="value">
+                        {{ staff.magazines_set.all | length }}
+                    </div>
+                    <div class="label">订阅</div>
+                </div>
+
+                <div class="ui divider"></div>
+                 {% for m in staff.magazines_set.all  %}
+
+                     <p>{{ m.mag_name }} </p>
+
+                 {% endfor %}
+
+                {% endfor %}
+        </div>
+    {% endfor %}
+
+     {% endif %}
+
+     {% if mag_list %}
+        {% for mag in mag_list %}
+            <div class="ui container segment">
+                <h4> {{ mag.mag_name }}</h4>
+             <div class="ui right floated  statistic">
+                    <div class="value">
+                        {{ mag.staff.all | length }}
+                    </div>
+                    <div class="label">订阅</div>
+                </div>
+
+            <div class="ui divider"></div>
+            {% for p in mag.staff.all %}
+                <p>{{ p.staff_name }}</p>
+
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+    {% if person %}
+        <div class="ui container segment">
+        <h4>{{ person.staff_name }}</h4>
+
+        <div class="ui right floated statistic">
+            <div class="value">
+                {{ person.magazines_set.all | length }}
+            </div>
+
+            <div class="label">订阅</div>
+
+        </div>
+
+        <div class="ui divider"></div>
+        {% for mag in person.magazines_set.all %}
+            <p>{{ mag.mag_name }}</p>
+
+        {% endfor %}
+        </div>
+    {% endif %}
+
+
+
+{% endblock %}
